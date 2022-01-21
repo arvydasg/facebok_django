@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <title>Base.html zinai</title>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="function">Function</a>
+    </div>
+  </head>
+  <body>
+
+    {% block content %}
+    {% endblock %}
+    
+  </body>
+</html>
+
+
+
+
+
