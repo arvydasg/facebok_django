@@ -1,6 +1,6 @@
 from django import forms
 
-class RawProductForm(forms.Form):
-    title = forms.CharField()
-    description = forms.CharField()
-    price = forms.DecimalField()
+class forma(forms.Form):
+    Link = forms.CharField()
+    Text = forms.CharField()
+    Amout = forms.DecimalField()
