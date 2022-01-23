@@ -4,15 +4,10 @@
 {% block content %}
     <!-- form for inputs  -->
     <h1>Ivesk duomenis cia</h1>
-    <form action='.' method='POST'>{% csrf_token %}
+    <form method='POST'>
+      {% csrf_token %}
       {{ form.as_p}}
-      <input type="submit" value="Submit the values"/>
+      <button type="submit">Submit</button>
+      <!-- <input type="submit" value="Submit the values"/> -->
     </form>
-    <br>
-    <br>
-    <!-- runs the function on button click -->
-    <form action="/run">
-      <button>Run the script</button>
-    </form>
-
 {% endblock%}

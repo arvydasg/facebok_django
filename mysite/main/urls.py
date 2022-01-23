@@ -5,5 +5,5 @@ app_name = "main"
 
 urlpatterns = [
     path('', views.homepage, name="homepage"),
-    path("run", views.run),
+    # path("success", views.success),
 ]
