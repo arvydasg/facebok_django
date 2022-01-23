@@ -22,8 +22,15 @@ def homepage(request):
 
     return render(request, 'main/home.html', context)
 
-# random second page
-def function(request):
-    return render(request, 'main/function.html')
+def run(request):
+    # opens new tab in chrome
+    pyautogui.keyDown('ctrl')
+    pyautogui.keyDown('t')
+    pyautogui.keyUp('t')
+    pyautogui.keyUp('ctrl')
+    print("hello world")        # prints in terminal
+    return HttpResponse("""<html><script>window.location.replace('/');</script></html>""") # reloads the page basically
 
-
+# # Test page
+# def run(request):
+#     return render(request, 'main/run.html')
