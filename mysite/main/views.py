@@ -1,18 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django import forms
-from .forms import RawProductForm
+from .forms import forma
 import pyautogui
 
-
 def homepage(request):
-    my_form = RawProductForm()
+    my_form = forma()
     if request.method == "POST":
-        my_form = RawProductForm(request.POST)
+        my_form = forma(request.POST)
         if my_form.is_valid():
-            labukas = (my_form.cleaned_data['title'])
+            link = (my_form.cleaned_data['Link'])
             print(my_form.cleaned_data)
-            print(labukas)
+            print(link)         # how to pass this value to another function???
+            return HttpResponseRedirect('/run')
         else:
             print(my_form.errors)
             
