@@ -29,11 +29,13 @@ def homepage(request):
             form_link = (my_form.cleaned_data['Link'])
             form_text = (my_form.cleaned_data['Text'])
             form_text2 = (my_form.cleaned_data['Text2'])
+            form_number = (my_form.cleaned_data['Number'])
             print("\n")
             print("Dalykai kuriuos irasei yra:")
             print("LINK " + "= " + str( form_link))
             print("TEXT " + "= " + str( form_text))
             print("TEXT2 " + "= " + str( form_text2))
+            print("Number " + "= " + str( form_number))
             print("\n")
             print("uz 5sec procedura prasides")
             print("\n")
@@ -72,7 +74,7 @@ def homepage(request):
             okay, lets start the for loop
             '''
             
-            for row in excel_sheet.iter_rows():
+            for row in excel_sheet.iter_rows(max_row=int(form_number)):
                 postoPradzia = time.time()
                 group_url = row[1].value  # fetch group id from excel
                 group_name = row[0].value # fetch group name from excel
