@@ -8,6 +8,7 @@ import time                     # time library
 import pyperclip                # copy paste allowing library
 from openpyxl import Workbook, load_workbook # excel library
 from django.views.generic import TemplateView
+from . models import groups
 
 BGBLACK = '\u001b[40m'
 BGGREEN = '\u001b[42m'
@@ -15,9 +16,28 @@ BGRED = '\u001b[41m'
 CEND = '\033[0m'
 
 excel_file = load_workbook('facebook_groups.xlsx')
-excel_sheet = excel_file['test1']
+excel_sheet = excel_file['veganai']
 
+def test(request):
+    # first, we import models into this view.
+    # from . models import <model name>
+    # then, we create a variable that stores a function from db? Like so.
+    all_groups = groups.objects.all().count()
+    veganai_groups = groups.objects.filter(group_category='veganai').count()
+    dovanos_groups = groups.objects.filter(group_category='dovanos').count()
 
+    # then, we put that variable into context variable, which then...
+    context = {
+        'all_groups': all_groups,
+        'veganai_groups': veganai_groups,
+        'dovanos_groups': dovanos_groups,
+    }
+
+    # is returned at the end. Context = context is the key.
+    return render(request, 'main/test.html', context=context)
+    # when that is done, I can then go to html templateview and do {{ context variable }}
+    # and it prints out on the web! boom.
+  
 def homepage(request):
     my_form = forma()
     if request.method == "POST":
@@ -30,14 +50,16 @@ def homepage(request):
             form_text = (my_form.cleaned_data['Text'])
             form_text2 = (my_form.cleaned_data['Text2'])
             form_number = (my_form.cleaned_data['Number'])
+            form_category = (my_form.cleaned_data['Category'])
             print("\n")
             print("Dalykai kuriuos irasei yra:")
             print("LINK " + "= " + str( form_link))
             print("TEXT " + "= " + str( form_text))
             print("TEXT2 " + "= " + str( form_text2))
             print("Number " + "= " + str( form_number))
+            print("Category " + "= " + str( form_category))
             print("\n")
-            print("uz 5sec procedura prasides")
+            print("uz 5 sec procedura prasides")
             print("\n")
             time.sleep(5)
 
@@ -101,12 +123,12 @@ def homepage(request):
                 And when one of those is found, I click on it. Now i am ready to paste in the text that I put in the FORM fields in the beginning.
                 '''
                 try:
-                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/cpp.png", region=(1013, 636, 400, 400))
+                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/cpp.png")
                     print("The image 'create_public_post.png' was found.")
                     pyautogui.click(x,y)
                 except TypeError:
                     print("Could not locate the image - Create a public post...")
-                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/ws.png", region=(1013, 636, 400, 400))
+                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/ws.png")
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 
@@ -136,8 +158,10 @@ def homepage(request):
                 '''
                 
                 time.sleep(1)
+                # f, o = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/x.png")
+                # pyautogui.click(f, o)
                 # half(left) screen Acer Aspire V3 771G
-                pyautogui.click(1664, 517) # turn off url link according to your screen pixel location (xdotool on linux)
+                pyautogui.click(1664, 525) # turn off url link according to your screen pixel location (xdotool on linux)
                 time.sleep(1)
                 pyautogui.click(1448, 950) # Click POST according to your screen pixel location (xdotool on linux)
 
