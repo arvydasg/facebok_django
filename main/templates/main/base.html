@@ -1,0 +1,38 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <script src="{% static 'main/main.js' %}"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    
+    <title>Base.html zinai</title>
+  </head>
+
+  <body class="bg-blue-700">
+    <div class="container mx-auto px-2">
+      <!-- NAVBAR -->
+      <ul class="flex">
+	<li class="flex-1 mr-2">
+	  <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/">Home</a>
+	</li>
+	<li class="flex-1 mr-2">
+	  <a class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4" href="/test">Test</a>
+	</li>
+	<li class="text-center flex-1">
+	  <a class="block py-2 px-4 text-gray-400 cursor-not-allowed" href="#">Disabled Item</a>
+	</li>
+      </ul>
+      <!-- NAVBAR END -->
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
+
+
+
+
+

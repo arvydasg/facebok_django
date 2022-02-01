@@ -1,0 +1,39 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block content %}
+
+<!-- how to create loose forms https://www.webforefront.com/django/formtemplatelayout.html -->
+<div>
+  <!-- form for inputs  -->
+  <h1 class="text-white text-xl">Ivesk duomenis cia</h1>
+  <form method='POST'>
+    <div class="w-full bg-red rounded-lg shadow-lg lg:w-1/3">
+      <ul class="divide-y-2 divide-gray-100">
+        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+         Facebook posto nuoroda {{ form.Link }}
+        </li>
+        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+         Pagrindinis CTA sakinys {{ form.Text }}
+        </li>
+        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+	  Aplankyk puslapį CTA + nuoroda {{ form.Text2 }}
+        </li>
+        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+	  I kiek grupiu nori papostinti? {{ form.Number }}
+        </li>
+	<li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+	  Į kokią kategoriją norėtum postinti? {{ form.Category }}
+        </li>
+      </ul>
+    </div>
+    <!-- some security token -->
+    {% csrf_token %}
+    
+    <!-- {{ form.as_p}}	<\!-- FORM BY ITSELF. Can not move or edit -, nothing -\-> -->
+      <!-- submit button -->
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+      <!-- <input type="submit" value="Submit the values"/> -->
+  </form>
+</div>
+{% endblock%}

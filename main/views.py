@@ -16,7 +16,7 @@ BGRED = '\u001b[41m'
 CEND = '\033[0m'
 
 excel_file = load_workbook('facebook_groups.xlsx')
-excel_sheet = excel_file['veganai']
+excel_sheet = excel_file['rajonai']
 
 def test(request):
     # first, we import models into this view.
