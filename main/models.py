@@ -1,7 +1,7 @@
 from django.db import models
 
 class groups(models.Model):
-    group_name = models.CharField(max_length=30)
+    group_name = models.CharField(max_length=200)
     group_link = models.CharField(max_length=100)
     group_category = models.CharField(max_length=100)
 
