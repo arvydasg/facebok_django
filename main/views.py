@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django import forms
 from . forms import forma
 import pyautogui
-import time                     # time library
+import time
 import pyperclip                # copy paste allowing library
 from openpyxl import Workbook, load_workbook # excel library
 from django.views.generic import TemplateView
@@ -75,10 +75,6 @@ def homepage(request):
             print("\n")
             time.sleep(5)
 
-            '''
-            FACEBOOK automation script starts NOW.
-            After the user clicks "submit" on the front end - the script waits a few seconds for any user activity to stop before opening a new browser window.
-            '''
             print("3 Seconds to prepare the browser")
             for i in range(4):
                 time.sleep(1)
@@ -92,21 +88,8 @@ def homepage(request):
             pyautogui.keyUp('t')
             pyautogui.keyUp('ctrl')
 
-            '''
-            tracking count by setting 0 and adding +1 in each for loop run so in the end I can see how many groups the script has posted to and how long it took. 
-            Interesting to track the duration to later see how minor changes in the code affects the time it takes for the script to complete. 
-            Currently the average time for the script to post to one group is around 24 seconds. 
-            Times that by 100 groups and you have 40 minutes that you can not do anything else with your computer. 
-            If I manage to cut the those 24 seconds to 15 or so without any gliches (script stumbling over its own feet, because it goes too fast), then.. 
-            yeah, better for me. Script finishes quickier.
-            '''
-
             count = 0
             scriptoPradzia = time.time()
-            
-            '''
-            okay, lets start the for loop
-            '''
             
             for row in excel_sheet.iter_rows(max_row=int(form_number)):
                 postoPradzia = time.time()
@@ -128,12 +111,6 @@ def homepage(request):
                     print("Browser window load" + " " + str(i) + "/9")
 
 
-                '''
-                Looking for certain images in the 'resources' folder, then comparing an area on the screen to see if the images match anything on the screen.
-                When it does - it clicks on that area. 
-                In my case - the images are of a button that every group in facebook has. There are two types of buttons in facebook groups, so I am looking for both of them.
-                And when one of those is found, I click on it. Now i am ready to paste in the text that I put in the FORM fields in the beginning.
-                '''
                 try:
                     x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/cpp.png")
                     print("The image 'create_public_post.png' was found.")
@@ -144,39 +121,24 @@ def homepage(request):
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 
-                '''
-                Taking the inputs from the FORM that I submitted in the front end and pasting it in the 'facebook post box' that I opened in the last step.
-                Some sleep in between the actions so the script wouldnt break for being too quick.
-                '''
+
                 time.sleep(2)
                 pyperclip.copy(form_link)
                 time.sleep(1)
-                pyautogui.hotkey('ctrl', 'v') # paste
-                pyautogui.hotkey('ctrl','a') # select all
-                pyautogui.press('backspace') # link not necessary anymore, delete
+                pyautogui.hotkey('ctrl', 'v')
+                pyautogui.hotkey('ctrl','a') 
+                pyautogui.press('backspace') 
                 pyperclip.copy(form_text)
-                pyautogui.hotkey('ctrl', 'v') # paste
-                pyautogui.press('enter')      # newline
+                pyautogui.hotkey('ctrl', 'v')
+                pyautogui.press('enter')
                 pyperclip.copy(form_text2)
-                pyautogui.hotkey('ctrl', 'v') # paste
-                pyautogui.press('enter')      # newline
+                pyautogui.hotkey('ctrl', 'v')
+                pyautogui.press('enter')
 
-                '''
-                After the text has been pasted, I can now click a few buttons to make the post clean, the buttons are currently being found by coordinates.
-                In the future I should take pictures of those buttons and find them the way I did above in the code. 
-                That would be a more fail proof way of clicking a button, since IF there is a lot of text in my post, the 'facebook post box' streches.
-                As a result the buttons that I need to click using coordinates - move as well. 
-                Then my script breaks.
-                '''
-                
                 time.sleep(1)
-                # f, o = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/x.png")
-                # pyautogui.click(f, o)
-                # half(left) screen Acer Aspire V3 771G
-                pyautogui.click(1664, 525) # turn off url link according to your screen pixel location (xdotool on linux)
+                pyautogui.click(1664, 525) 
                 time.sleep(1)
-                pyautogui.click(1448, 950) # Click POST according to your screen pixel location (xdotool on linux)
-
+                pyautogui.click(1448, 950) 
                                 
                 # some time to prepare the browser
                 print("2 Seconds to prepare the browser")
@@ -201,7 +163,3 @@ def homepage(request):
     }
 
     return render(request, 'main/home.html', context) # How to render this page
-
-# def success(request):
-#     print("LINK " + "= " + str( form_link))
-#     return render(request, 'main/success.html')
