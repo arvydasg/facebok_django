@@ -14,62 +14,20 @@ BGBLACK = '\u001b[40m'
 BGGREEN = '\u001b[42m'
 BGRED = '\u001b[41m'
 CEND = '\033[0m'
-# labukas
 
-excel_file = load_workbook('facebook_groups.xlsx')
-excel_sheet = excel_file['didieji']
-
-####################################################################################################################################################################
-
-def test(request):
-    # first, we import models into this view.
-    # from . models import <model name>
-    # then, we create a variable that stores a function from db? Like so.
-    all_groups = groups.objects.all().count()
-    veganai_groups = groups.objects.filter(group_category='veganai').count()
-    dovanos_groups = groups.objects.filter(group_category='dovanos').count()
-    
-    # then, we put that variable into context variable, which then...
-    context = {
-        'all_groups': all_groups,
-        'veganai_groups': veganai_groups,
-        'dovanos_groups': dovanos_groups,
-    }
-    
-    items = groups.objects.all()
-    for item in items.values('group_name', 'group_link', 'group_category'):
-        name = item['group_name']
-        link = item['group_link']
-        category = item['group_category']
-        print(category)
-
-    # is returned at the end. Context = context is the key.
-    return render(request, 'main/test.html', context=context)
-    # when that is done, I can then go to html templateview and do {{ context variable }}
-    # and it prints out on the web! boom.
-
-####################################################################################################################################################################
-    
-def homepage(request):
+def veganai(request):
     my_form = forma()
     if request.method == "POST":
         my_form = forma(request.POST)
         if my_form.is_valid():
-            '''
-            Just getting some values for later use
-            '''
             form_link = (my_form.cleaned_data['Link'])
             form_text = (my_form.cleaned_data['Text'])
             form_text2 = (my_form.cleaned_data['Text2'])
-            form_number = (my_form.cleaned_data['Number'])
-            form_category = (my_form.cleaned_data['Category'])
             print("\n")
             print("Dalykai kuriuos irasei yra:")
             print("LINK " + "= " + str( form_link))
             print("TEXT " + "= " + str( form_text))
             print("TEXT2 " + "= " + str( form_text2))
-            print("Number " + "= " + str( form_number))
-            print("Category " + "= " + str( form_category))
             print("\n")
             print("uz 5 sec procedura prasides")
             print("\n")
@@ -90,18 +48,21 @@ def homepage(request):
 
             count = 0
             scriptoPradzia = time.time()
-            
-            for row in excel_sheet.iter_rows(max_row=int(form_number)):
+
+            # using database items instead of excel file like before
+            items = groups.objects.filter(group_category='kaunas')
+            for item in items.values('group_name', 'group_link', 'group_category'):
                 postoPradzia = time.time()
-                group_url = row[1].value  # fetch group id from excel
-                group_name = row[0].value # fetch group name from excel
-                link = 'https://facebook.com/groups/'+str(group_url) # pro move
-                # type group name
+                group_name = item['group_name']
+                group_link = item['group_link']
+                group_category = item['group_name']
+                
+                link = 'https://facebook.com/groups/'+str(group_link) # pro move
                 time.sleep(3)
-                pyperclip.copy(link)          # copies 'facebook.com/groups' and adds the group ID from excel sheet at the end of this url
-                pyautogui.hotkey('ctrl', 'v') # pastes the FULL url
-                pyautogui.typewrite('\n')     # press ENTER
-                print("Atsidariau" + " " + BGBLACK + str(group_name) + CEND) # prints out in the console the name of the group it has opened
+                pyperclip.copy(link)
+                pyautogui.hotkey('ctrl', 'v')
+                pyautogui.typewrite('\n')
+                print("Atsidariau" + " " + BGBLACK + str(group_name) + CEND)
                 print("\n")
                 
                 # let the browser window load
@@ -109,7 +70,6 @@ def homepage(request):
                 for i in range(10):
                     time.sleep(1)
                     print("Browser window load" + " " + str(i) + "/9")
-
 
                 try:
                     x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/cpp.png")
@@ -120,7 +80,6 @@ def homepage(request):
                     a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/projects/facebook_automated_groups/resources/ws.png")
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
-
 
                 time.sleep(2)
                 pyperclip.copy(form_link)
@@ -152,9 +111,6 @@ def homepage(request):
                 print("\n")       # new line
                 count +=1 # variable will increment every loop iteration
                 
-            '''
-            How long in TOTAL it took for the script to run and how many groups it posted to.
-            '''
             print("Papostinau i" + " " + str(count) + " " + "grupes.") # how many groups I have posted to 
             print("Is viso uztruko {0} sekundes" .format(time.time() - scriptoPradzia)) # how long it took for the script to run
    
@@ -162,4 +118,42 @@ def homepage(request):
         "form": my_form
     }
 
-    return render(request, 'main/home.html', context) # How to render this page
+    return render(request, 'main/veganai.html', context) # How to render this page
+
+####################################################################################################################################################################
+
+
+def test(request):
+    # first, we import models into this view.
+    # from . models import <model name>
+    # then, we create a variable that stores a function from db? Like so.
+    all_groups = groups.objects.all().count()
+    veganai_groups = groups.objects.filter(group_category='veganai').count()
+    dovanos_groups = groups.objects.filter(group_category='dovanos').count()
+    mamytes_groups = groups.objects.filter(group_category='Mamytes').count()
+    vilnius_groups = groups.objects.filter(group_category='vilnius').count()
+    kaunas_groups = groups.objects.filter(group_category='kaunas').count()
+    
+    # then, we put that variable into context variable that can be used in test.html...
+    context = {
+        'all_groups': all_groups,
+        'veganai_groups': veganai_groups,
+        'dovanos_groups': dovanos_groups,
+        'mamytes_groups': mamytes_groups,
+        'vilnius_groups': vilnius_groups,
+        'kaunas_groups': kaunas_groups,
+    }
+    
+    items = groups.objects.filter(group_category='Mamytes')
+    for item in items.values('group_name', 'group_link', 'group_category'):
+        name = item['group_name']
+        link = item['group_link']
+        category = item['group_category']
+        print(name)
+
+    # is returned at the end. Context = context is the key.
+    return render(request, 'main/test.html', context=context)
+# when that is done, I can then go to html templateview and do {{ context variable }}
+# and it prints out on the web! boom.
+
+####################################################################################################################################################################
