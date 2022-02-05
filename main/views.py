@@ -16,7 +16,7 @@ BGRED = '\u001b[41m'
 CEND = '\033[0m'
 
 excel_file = load_workbook('facebook_groups.xlsx')
-excel_sheet = excel_file['rajonai']
+excel_sheet = excel_file['didieji']
 
 def test(request):
     # first, we import models into this view.
@@ -25,14 +25,21 @@ def test(request):
     all_groups = groups.objects.all().count()
     veganai_groups = groups.objects.filter(group_category='veganai').count()
     dovanos_groups = groups.objects.filter(group_category='dovanos').count()
-
+    
     # then, we put that variable into context variable, which then...
     context = {
         'all_groups': all_groups,
         'veganai_groups': veganai_groups,
         'dovanos_groups': dovanos_groups,
     }
-
+    
+    items = groups.objects.all()
+    for item in items.values('group_name', 'group_link', 'group_category'):
+        name = item['group_name']
+        link = item['group_link']
+        category = item['group_category']
+        print(category)
+        
     # is returned at the end. Context = context is the key.
     return render(request, 'main/test.html', context=context)
     # when that is done, I can then go to html templateview and do {{ context variable }}
