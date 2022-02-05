@@ -14,6 +14,7 @@ BGBLACK = '\u001b[40m'
 BGGREEN = '\u001b[42m'
 BGRED = '\u001b[41m'
 CEND = '\033[0m'
+# labukas
 
 excel_file = load_workbook('facebook_groups.xlsx')
 excel_sheet = excel_file['didieji']
