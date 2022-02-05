@@ -6,4 +6,3 @@ class forma(forms.Form):
     Text2 = forms.CharField()
     Number = forms.DecimalField()
     Category= forms.CharField()
-

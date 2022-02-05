@@ -18,6 +18,8 @@ CEND = '\033[0m'
 excel_file = load_workbook('facebook_groups.xlsx')
 excel_sheet = excel_file['didieji']
 
+####################################################################################################################################################################
+
 def test(request):
     # first, we import models into this view.
     # from . models import <model name>
@@ -39,12 +41,14 @@ def test(request):
         link = item['group_link']
         category = item['group_category']
         print(category)
-        
+
     # is returned at the end. Context = context is the key.
     return render(request, 'main/test.html', context=context)
     # when that is done, I can then go to html templateview and do {{ context variable }}
     # and it prints out on the web! boom.
-  
+
+####################################################################################################################################################################
+    
 def homepage(request):
     my_form = forma()
     if request.method == "POST":
