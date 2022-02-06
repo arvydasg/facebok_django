@@ -5,3 +5,4 @@
 from .veganai import *
 from .test import *
 from .dovanos import *
+from .mamytes import *

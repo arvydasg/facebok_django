@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.veganai, name="veganai"),
     path('dovanos/', views.dovanos, name="dovanos"),
     path('test/', views.test, name="test"),
-    # path('mamytes/', views.mamytes, name="mamytes"),
+    path('mamytes/', views.mamytes, name="mamytes"),
     # path('vilnius/', views.vilnius, name="vilnius"),
     # path('kaunas/', views.kaunas, name="kaunas"),
     
