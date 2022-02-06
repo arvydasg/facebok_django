@@ -118,4 +118,4 @@ def kaunas(request):
         "form": my_form
     }
 
-    return render(request, 'main/veganai.html', context) # How to render this page
+    return render(request, 'main/kaunas.html', context) # How to render this page
