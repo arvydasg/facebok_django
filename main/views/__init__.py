@@ -6,3 +6,5 @@ from .veganai import *
 from .test import *
 from .dovanos import *
 from .mamytes import *
+from .vilnius import *
+from .kaunas import *
