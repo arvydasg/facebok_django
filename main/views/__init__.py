@@ -2,6 +2,6 @@
 # this is the tutorial of how to split the view file. https://vsupalov.com/large-django-views-file/
 # modify thingies step by step and see if the server crashes
 
-from .views import *
-
+from .veganai import *
 from .test import *
+from .dovanos import *
