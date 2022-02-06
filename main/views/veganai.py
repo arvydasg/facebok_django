@@ -50,7 +50,7 @@ def veganai(request):
             scriptoPradzia = time.time()
 
             # using database items instead of excel file like before
-            items = groups.objects.filter(group_category='kaunas')
+            items = groups.objects.filter(group_category='veganai')
             for item in items.values('group_name', 'group_link', 'group_category'):
                 postoPradzia = time.time()
                 group_name = item['group_name']
