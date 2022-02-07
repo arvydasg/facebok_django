@@ -23,7 +23,7 @@ def test(request):
         'kaunas_groups': kaunas_groups,
     }
     
-    items = groups.objects.filter(group_category='Mamytes')
+    items = groups.objects.filter(group_category='mamytes')
     for item in items.values('group_name', 'group_link', 'group_category'):
         name = item['group_name']
         link = item['group_link']
