@@ -3,16 +3,43 @@
 
 {% block content %}
 
-<h1>Grupės</h1>
-
-<ul>
-  <li><strong>Visos grupes: </strong>{{ all_groups }}</li>
-  <li><strong>Veganai: </strong>{{ veganai_groups }}</li>
-  <li><strong>Dovanos: </strong>{{ dovanos_groups }}</li>
-  <li><strong>Mamytes: </strong>{{ mamytes_groups }}</li>
-  <li><strong>Vilnius: </strong>{{ vilnius_groups }}</li>
-  <li><strong>Kaunas: </strong>{{ kaunas_groups }}</li>
-</ul>
-
-
+<h1 class="text-white text-center mt-6 mb-6 text-2xl">GRUPĖS</h1>
+<h1 class='text-2xl font-bold text-center'>Visos grupes i kurias Arvydo Facebook paskyra yra prisijungusi</h1>
+<br/>
+<div>
+  <div class="h-screen w-full bg-gray-50">
+    <div class="flex w-full justify-center">
+      <table class="table-fixed border border-gray-500 border-collapse w-4/5 mx-24 mt-14">
+        <thead class="">
+          <tr class="border-b-2 border-black">
+            <th class="w-4/12 bg-gray-300 text-left px-2">Visos grupes</th>
+            <th class="w-4/12 bg-gray-300 text-left px-2">{{ all_groups }}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-400">
+          <tr>
+            <td class="text-left px-2">Veganai</td>
+            <td class="px-2">{{ veganai_groups }}</td>
+          </tr>
+	  <tr>
+            <td class="text-left px-2">Dovanos</td>
+            <td class="px-2">{{ dovanos_groups }}</td>
+          </tr>
+	  <tr>
+            <td class="text-left px-2">Mamytes</td>
+            <td class="px-2">{{ mamytes_groups }}</td>
+          </tr>
+	  <tr>
+            <td class="text-left px-2">Vilnius</td>
+            <td class="px-2">{{ vilnius_groups }}</td>
+          </tr>
+	  <tr>
+            <td class="text-left px-2">Kaunas</td>
+            <td class="px-2">{{ kaunas_groups }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}

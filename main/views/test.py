@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import groups
+import time
 
 def test(request):
     # first, we import models into this view.
@@ -8,7 +9,7 @@ def test(request):
     all_groups = groups.objects.all().count()
     veganai_groups = groups.objects.filter(group_category='veganai').count()
     dovanos_groups = groups.objects.filter(group_category='dovanos').count()
-    mamytes_groups = groups.objects.filter(group_category='Mamytes').count()
+    mamytes_groups = groups.objects.filter(group_category='mamytes').count()
     vilnius_groups = groups.objects.filter(group_category='vilnius').count()
     kaunas_groups = groups.objects.filter(group_category='kaunas').count()
     
@@ -28,6 +29,7 @@ def test(request):
         link = item['group_link']
         category = item['group_category']
         print(name)
+
 
     # is returned at the end. Context = context is the key.
     return render(request, 'main/test.html', context=context)
