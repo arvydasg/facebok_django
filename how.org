@@ -1,0 +1,18 @@
+* How To Use this [0/16]
+- [ ] Open the terminal
+- [ ] click . then space and then write run_facebook_django.sh and hit Enter
+- [ ] Two browser windows will open. One is - http://127.0.0.1:8000/ [Facebook Group Poster], another is SF facebook page.
+- [ ] Go to facebook page, find a post you want to share.
+- [ ] Click on the date of the post. A new window will open up.
+- [ ] Copy the URL (address) of that post. Should look something like this - https://www.facebook.com/permalink.php?story_fbid=136469715524191&id=107538098417353
+- [ ] Open the "Facebook Group Poster" browser tab.
+- [ ] Make the browser window sideways. Click "windows key" + right arrow.
+- [ ] Position terminal window in the left bottom corner. (so its easy to see the process of the script)
+- [ ] In browser, navigation at the top - click "Test" tab. There you will see all the groups Arvydas personal facebook account has joined.
+- [ ] According to those numbers, decide which group your post will fit best and open that tab.
+- [ ] Inside "Facebook posto nuoroda" add the link you have copied from the above steps.
+- [ ] Inside "Pagrindinis CTA sakinys" - add a short message for people to see.
+- [ ] Inside "Aplankyk puslapį CTA + nuoroda" write the content that you get when the field is clicked.
+- [ ] Once again make sure the browser window is on the half right side. Terminal window is on the bottom left corner.
+- [ ] Click Submit when ready.
+
