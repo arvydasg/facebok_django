@@ -72,12 +72,12 @@ def veganai(request):
                     print("Browser window load" + " " + str(i) + "/9")
                 
                 try:
-                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/cpp.png")
+                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/cpp.png")
                     print("The image 'create_public_post.png' was found.")
                     pyautogui.click(x,y)
                 except TypeError:
                     print("Could not locate the image - Create a public post...")
-                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/ws.png")
+                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/ws.png")
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 
@@ -95,10 +95,10 @@ def veganai(request):
                 pyautogui.press('enter')
 
                 time.sleep(1)
-                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/x.png")
+                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/x.png")
                 pyautogui.click(a,c)
                 time.sleep(1)
-                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/post.png")
+                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/post.png")
                 pyautogui.click(f,g)
 
                                 
