@@ -1,4 +1,11 @@
+"""
+blabla bla.
+
+bla
+"""
+
 from django import forms
+
 
 class forma(forms.Form):
     Link = forms.CharField()
@@ -6,3 +13,6 @@ class forma(forms.Form):
     Text2 = forms.CharField()
     # Number = forms.DecimalField()
     # Category= forms.CharField()
+
+
+print
