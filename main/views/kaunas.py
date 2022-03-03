@@ -85,8 +85,8 @@ def kaunas(request):
                 pyperclip.copy(form_link)
                 time.sleep(1)
                 pyautogui.hotkey('ctrl', 'v')
-                pyautogui.hotkey('ctrl','a') 
-                pyautogui.press('backspace') 
+                pyautogui.hotkey('ctrl','a')
+                pyautogui.press('backspace')
                 pyperclip.copy(form_text)
                 pyautogui.hotkey('ctrl', 'v')
                 pyautogui.press('enter')
@@ -95,10 +95,10 @@ def kaunas(request):
                 pyautogui.press('enter')
 
                 time.sleep(1)
-                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/x.png")
+                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/x.png", confidence=0.9)
                 pyautogui.click(a,c)
                 time.sleep(1)
-                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/post.png")
+                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/post.png", confidence=0.9)
                 pyautogui.click(f,g)
 
                                 

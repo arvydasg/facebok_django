@@ -95,10 +95,10 @@ def dovanos(request):
                 pyautogui.press('enter')
 
                 time.sleep(1)
-                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/x.png")
+                a, c = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/x.png", confidence=0.9)
                 pyautogui.click(a,c)
                 time.sleep(1)
-                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/post.png")
+                f, g = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/post.png", confidence=0.9)
                 pyautogui.click(f,g)
 
                                 
