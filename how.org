@@ -15,4 +15,3 @@
 - [ ] Inside "Aplankyk puslapį CTA + nuoroda" write the content that you get when the field is clicked.
 - [ ] Once again make sure the browser window is on the half right side. Terminal window is on the bottom left corner.
 - [ ] Click Submit when ready.
-
