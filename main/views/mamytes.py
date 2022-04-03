@@ -4,7 +4,6 @@ Patvarkytas 02-23.
 This.
 """
 
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -79,12 +78,12 @@ def mamytes(request):
                     print("Browser window load" + " " + str(i) + "/9")
 
                 try:
-                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/cpp.png", confidence=0.9)
+                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/cpp.png", confidence=0.9)
                     print("The image 'create_public_post.png' was found.")
                     pyautogui.click(x,y)
                 except TypeError:
                     print("Could not locate the image - Create a public post...")
-                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/ws.png", confidence=0.9)
+                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/ws.png", confidence=0.9)
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 

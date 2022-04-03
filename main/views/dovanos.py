@@ -72,12 +72,12 @@ def dovanos(request):
                     print("Browser window load" + " " + str(i) + "/9")
 
                 try:
-                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/cpp.png")
+                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/cpp.png")
                     print("The image 'create_public_post.png' was found.")
                     pyautogui.click(x,y)
                 except TypeError:
                     print("Could not locate the image - Create a public post...")
-                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/ws.png")
+                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/ws.png")
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 

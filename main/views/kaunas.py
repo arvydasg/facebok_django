@@ -1,13 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django import forms
 from main.forms import forma
 import pyautogui
 import time
 import pyperclip                # copy paste allowing library
-from openpyxl import Workbook, load_workbook # excel library
-from django.views.generic import TemplateView
 from main.models import groups
 
 BGBLACK = '\u001b[40m'
@@ -72,12 +67,12 @@ def kaunas(request):
                     print("Browser window load" + " " + str(i) + "/9")
 
                 try:
-                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/cpp.png")
+                    x, y = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/cpp.png")
                     print("The image 'create_public_post.png' was found.")
                     pyautogui.click(x,y)
                 except TypeError:
                     print("Could not locate the image - Create a public post...")
-                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Desktop/test/ws.png")
+                    a, b = pyautogui.locateCenterOnScreen("/home/arvydas/Dropbox/src/facebook_django/static/resources/ws.png")
                     print("The image 'write something' was found")
                     pyautogui.click(a,b)
 
