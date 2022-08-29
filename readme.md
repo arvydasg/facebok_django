@@ -1,6 +1,6 @@
 # Interface for facebook automation script
 
-![facebookdjango](https://user-images.githubusercontent.com/78803192/187250091-fa744e0b-717f-4120-9b00-5ed158e90fa0.png)
+![facebookdjango](https://user-images.githubusercontent.com/78803192/187250424-127158d9-03fc-4f25-8696-aea74e4cc73c.png)
 
 Inspiration:
 * Create a form - https://www.youtube.com/watch?v=uz5gyXemak0
