@@ -2,6 +2,8 @@
 
 ![facebookdjango](https://user-images.githubusercontent.com/78803192/187250424-127158d9-03fc-4f25-8696-aea74e4cc73c.png)
 
+Video of how it works - https://www.veed.io/view/c32a9c68-e5c3-48be-939e-b3121bc8d8f9
+
 Inspiration:
 * Create a form - https://www.youtube.com/watch?v=uz5gyXemak0
 * Run a script with django - https://www.youtube.com/watch?v=4VHtGm-4iBwPeXg
