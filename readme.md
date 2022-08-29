@@ -1,5 +1,7 @@
 # Interface for facebook automation script
 
+![facebookdjango](https://user-images.githubusercontent.com/78803192/187250091-fa744e0b-717f-4120-9b00-5ed158e90fa0.png)
+
 Inspiration:
 * Create a form - https://www.youtube.com/watch?v=uz5gyXemak0
 * Run a script with django - https://www.youtube.com/watch?v=4VHtGm-4iBwPeXg
